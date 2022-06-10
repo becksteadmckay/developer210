@@ -114,11 +114,14 @@ namespace Unit03.Game
 
         public void returnGuessList()
         {
+            Console.WriteLine("");
             for (int i = 0; i < _guesses.Count; i ++)
             {
                 Console.Write($"{_guesses[i]}, ");
             }
             Console.WriteLine("");
+            Console.WriteLine("");
+
 
         }
     }

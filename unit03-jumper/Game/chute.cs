@@ -36,21 +36,26 @@ namespace Unit03.Game
             _lines.Add(@" \\ // ");
             _lines.Add(@"  \ /  ");
             _lines.Add(@"   |   ");
+            _lines.Add(@"   0   ");
+            _lines.Add(@"  /|\  ");
+            _lines.Add(@"  / \  ");
+
         }
         public string GetChute()
         {
             List<string> newlist = new List<string>();
 
-            if (_count < _lines.Count){
+    
 
             for( int i = _count; i < _lines.Count; i ++)
             {
                newlist.Add(_lines[i]);
             }
-            }
-            else
+            
+            if (_count > _lines.Count - 4)
             {
-                return "dead";
+                newlist[0] = "   x   ";
+                return string.Join("\n", newlist);
             }
             return string.Join("\n", newlist);
         }
