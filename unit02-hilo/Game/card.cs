@@ -7,18 +7,36 @@ namespace Unit02.Game
 {
     public class Card
     {
-        public int value = -1;
-        public Card()
-        {
-        }
+        public int value;
+        public int points;
 
-        /// Generates a new random value and calculates the points for the die.
-        /// </summary>
-        public void Draw()
+
+        public Card()
         {
             Random random = new Random();
             value = random.Next(1, 14);
             
+        }
+
+        public bool greater(int ph)
+        {
+            if (value > ph)
+            {
+                return true;
+            }
+
+            return false;
+        
+        }
+        public bool less(int ph)
+        {
+            if (value > ph)
+            {
+                return true;
+            }
+
+            return false;
+        
         }
 
     }

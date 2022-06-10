@@ -14,9 +14,10 @@ namespace Unit02.Game
         bool isPlaying = true;
         int score = 0;
         int totalScore = 100;
+        
+        int previousCard = 7;
 
-        Card card1 = new Card();
-        Card card2 = new Card();
+
 
         public Director()
         {
@@ -32,7 +33,7 @@ namespace Unit02.Game
             {
                 GetInputs();
                 DoUpdates();
-                GetInputs2();
+                DoOutputs();
                 
             }
         }
@@ -56,62 +57,88 @@ namespace Unit02.Game
             {
                 return;
             }
+            Card card = new Card();
 
-            card1.Draw();
-            card2.Draw();
+            Console.WriteLine($"next: {card.value} | previous: {previousCard}");
+
+            previousCard = card.value;
+            int nextCard = card.value;
+
+            Console.WriteLine($"Above or Below {previousCard} ('a','b')");
+            string guess = Console.ReadLine();
+
+            if ( nextCard > previousCard && guess == "a")
+            {
+                score = 100;
+            }
+            else if (nextCard < previousCard && guess == "b")
+            {
+                score = 100;
+            }
+            else
+            {
+                score = -100;
+            }
+
+            totalScore = score + totalScore;
+
         }
 
         /// <summary>
         /// Displays the dice and the score. Also asks the player if they want to roll again. 
         /// </summary>
 
-        public void GetInputs2()
+        public void DoOutputs()
         {
             if (!isPlaying)
             {
                 return;
             }
-           
-            Console.WriteLine($"Do you think the next card is above or below {card1.value}? ('a' or 'b')");
-            string above_below = Console.ReadLine();
-            if (above_below == "a")
-            {
-                if(card1.value > card2.value)
-                {
-                    score = -100;
-                }
-                else if(card1.value < card2.value)
-                {
-                    score = 100;
-                }
-                else
-                {
-                    score = 0;
-                }
-            }
-            if (above_below == "b")
-            {
-                if(card1.value < card2.value)
-                {
-                    score = -100;
-                }
-                else if(card1.value > card2.value)
-                {
-                    score = 100;
-                }
-                else
-                {
-                    score = 0;
-                }
-            }
-            totalScore += score;
-
-            Console.WriteLine($"({card1.value},{card2.value})");
 
             Console.WriteLine($"{totalScore}");
-            
+
         }
     }
 }
 
 
+// Console.WriteLine($"Do you think the next card is above or below {card1.value}? ('a' or 'b')");
+//             string above_below = Console.ReadLine();
+
+//             if (above_below == "a")
+//             {
+//                 if(card1.value > card2.value)
+//                 {
+//                     score = -100;
+//                 }
+//                 else if(card1.value < card2.value)
+//                 {
+//                     score = 100;
+//                 }
+//                 else
+//                 {
+//                     score = 0;
+//                 }
+//             }
+//             if (above_below == "b")
+//             {
+
+//                 if(card1.value < card2.value)
+//                 {
+//                     score = -100;
+//                 }
+//                 else if(card1.value > card2.value)
+//                 {
+//                     score = 100;
+//                 }
+//                 else
+//                 {
+//                     score = 0;
+//                 }
+//             }
+//             totalScore += score;
+
+//             Console.WriteLine($"({card1.value},{card2.value})");
+
+//             Console.WriteLine($"{totalScore}");
+            
