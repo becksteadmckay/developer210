@@ -45,7 +45,7 @@ namespace Unit03.Game
         private void GetInputs()
         {
             
-            char guess = terminalService.ReadChar("\nEnter any letter. ");
+            char guess = terminalService.ReadChar("\nEnter any letter: ");
             seeker.MoveLocation(guess);
             word.checkGuess(guess);
         }
@@ -75,8 +75,8 @@ namespace Unit03.Game
             {
                 isPlaying = false;
                 terminalService.WriteText(word.getWord());
+                terminalService.WriteText(word.checkWord(word));
             }
-            terminalService.WriteText(word.checkWord(word));
             
         }
     }

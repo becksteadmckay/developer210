@@ -27,7 +27,10 @@ namespace Unit03.Game
         {
             foreach (string line in System.IO.File.ReadLines(@"C:\Users\mckay\OneDrive\Documents\vs_code\cse210\otherProjects\prove3try2\Game\words.txt"))
             {  
+                if (line.Length > 5){
+
                 _wordList.Add(line);  
+                }
             }
             
         }
@@ -35,7 +38,7 @@ namespace Unit03.Game
         private void chooseRandomWord()
         {
             Random random = new Random();
-            int number = random.Next(10001);
+            int number = random.Next(_wordList.Count + 1);
             
             _word = _wordList[number];
         }
@@ -82,7 +85,7 @@ namespace Unit03.Game
             }
             else
             {
-                return "not found";
+                return "Try Again";
             }
         }
 
@@ -109,7 +112,7 @@ namespace Unit03.Game
 
         public string getWord()
         {
-            return _word;
+            return $"The word was {_word}";
         }
 
         public void returnGuessList()
