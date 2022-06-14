@@ -5,11 +5,10 @@ using Unit03.Game;
 
 namespace Unit03.Game
 {
-    // TODO: Implement the Seeker class as follows...
-    public class Seeker
+        public class Guess
     {
         private char guess;
-        public Seeker(){}
+        public Guess(){}
 
         public char GetGuess()
         {

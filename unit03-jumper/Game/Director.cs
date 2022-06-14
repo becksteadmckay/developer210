@@ -14,7 +14,7 @@ namespace Unit03.Game
     {
         private bool isPlaying = true;
         private Word word = new Word();
-        private Seeker seeker = new Seeker();
+        private Guess guess = new Guess();
 
         private Chute chute = new Chute();
         private TerminalService terminalService = new TerminalService();
@@ -45,9 +45,9 @@ namespace Unit03.Game
         private void GetInputs()
         {
             
-            char guess = terminalService.ReadChar("\nEnter any letter: ");
-            seeker.MoveLocation(guess);
-            word.checkGuess(guess);
+            char userInput = terminalService.ReadChar("\nEnter any letter: ");
+            guess.MoveLocation(userInput);
+            word.checkGuess(userInput);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Unit03.Game
         /// </summary>
         private void DoUpdates()
         {
-            word.WatchSeeker(seeker);
+            word.WatchGuesses(guess);
             chute.WatchWord_true(word);
             word.checkWord(word);
             

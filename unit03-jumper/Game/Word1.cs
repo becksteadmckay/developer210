@@ -21,6 +21,14 @@ namespace Unit03.Game
         private List<string> _wordList = new List<string>();
 
         public string _word;
+        public Word()
+        {
+
+            makeWordList();
+            chooseRandomWord();
+            
+            
+        }
 
 
         private void makeWordList()
@@ -46,14 +54,6 @@ namespace Unit03.Game
         /// <summary>
         /// Constructs a new instance of Word. 
         /// </summary>
-        public Word()
-        {
-
-            makeWordList();
-            chooseRandomWord();
-            
-            
-        }
 
         /// <summary>
         /// Gets a hint for the seeker.
@@ -105,9 +105,9 @@ namespace Unit03.Game
         /// Watches the seeker by keeping track of how far away it is.
         /// </summary>
         /// <param name="seeker">The seeker to watch.</param>
-        public void WatchSeeker(Seeker seeker)
+        public void WatchGuesses(Guess guess)
         {
-            _guesses.Add(seeker.GetGuess());
+            _guesses.Add(guess.GetGuess());
         }
 
         public string getWord()
@@ -117,14 +117,15 @@ namespace Unit03.Game
 
         public void returnGuessList()
         {
-            Console.WriteLine("");
+           
+            terminalservice.WriteText("");
+            terminalservice.WriteText("");
             for (int i = 0; i < _guesses.Count; i ++)
             {
                 Console.Write($"{_guesses[i]}, ");
             }
-            Console.WriteLine("");
-            Console.WriteLine("");
-
+            terminalservice.WriteText("");
+            terminalservice.WriteText("");
 
         }
     }
