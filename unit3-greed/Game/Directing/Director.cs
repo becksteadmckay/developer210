@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Unit04.Game.Casting;
 using Unit04.Game.Services;
+using System;
+
 
 
 namespace Unit04.Game.Directing
@@ -13,6 +15,8 @@ namespace Unit04.Game.Directing
     /// </summary>
     public class Director
     {
+        Artifact artifact = new Artifact();
+        private Random random = new Random();
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
 
@@ -51,7 +55,8 @@ namespace Unit04.Game.Directing
         {
             Actor robot = cast.GetFirstActor("robot");
             Point velocity = keyboardService.GetDirection();
-            robot.SetVelocity(velocity);     
+            robot.SetVelocity(velocity);
+
         }
 
         /// <summary>
@@ -68,14 +73,31 @@ namespace Unit04.Game.Directing
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
+            banner.SetText($"Score: {artifact.GetScore()}");
+
 
             foreach (Actor actor in artifacts)
             {
-                if (robot.GetPosition().Equals(actor.GetPosition()))
+                actor.MoveNext(maxX, maxY);
+                if (robot.GetPosition().KindaEquals(actor.GetPosition()))
                 {
-                    Artifact artifact = (Artifact) actor;
-                    string message = artifact.GetMessage();
-                    banner.SetText(message);
+                    int x = random.Next(1, 900);
+                    Point position = new Point(x, -1);
+                    actor.SetPosition(position);
+                    if (actor.text == "*")
+                    {
+                        artifact._add();
+
+                    }
+                    else
+                    {
+                        artifact._subtract();
+                    }
+
+                    // Artifact artifact = (Artifact) actor;
+                    
+
+                    // string message = artifact.GetMessage();
                 }
             } 
         }

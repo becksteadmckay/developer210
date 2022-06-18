@@ -14,6 +14,7 @@ namespace Unit04
     /// </summary>
     class Program
     {
+        private static int PERCENT_STARS = 25;
         private static int FRAME_RATE = 12;
         private static int MAX_X = 900;
         private static int MAX_Y = 600;
@@ -49,7 +50,7 @@ namespace Unit04
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
-            robot.SetPosition(new Point(MAX_X / 2, MAX_Y / 2));
+            robot.SetPosition(new Point(MAX_X / 2, MAX_Y - (MAX_Y/10)));
             cast.AddActor("robot", robot);
 
             // load the messages
@@ -59,13 +60,28 @@ namespace Unit04
             Random random = new Random();
             for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
             {
-                string text = ((char)random.Next(33, 126)).ToString();
+                string text = "";
+                Random ramdom = new Random();
+                int number = random.Next(1,100);
+                if (number < PERCENT_STARS)
+                {
+                    text = "*";
+
+                }
+                else
+                {
+                    text = "o";
+                }
+                // string text = ((char)random.Next(33, 126)).ToString();
                 string message = messages[i];
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
+                Point velocity = new Point(0, 5);
+
                 position = position.Scale(CELL_SIZE);
+                
 
                 int r = random.Next(0, 256);
                 int g = random.Next(0, 256);
@@ -76,6 +92,7 @@ namespace Unit04
                 artifact.SetText(text);
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
+                artifact.SetVelocity(velocity);
                 artifact.SetPosition(position);
                 artifact.SetMessage(message);
                 cast.AddActor("artifacts", artifact);

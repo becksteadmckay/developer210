@@ -4,6 +4,7 @@ namespace Unit04.Game.Casting
     {
         public string _message;
 
+        private int _score = 1;
         public Artifact()
         {
 
@@ -16,6 +17,23 @@ namespace Unit04.Game.Casting
         {
             _message = message;
         }
+        public int GetScore()
+        {
+            return _score;
+        }
+        public void _add()
+        {
+            _score += 1;
+            
+        }
+        public void _subtract()
+        {
+            _score += -1;
+        }
+        // public void SetMessage(string message)
+        // {
+        //     _message = message;
+        // }
 
     }
     // TODO: Implement the Artifact class here

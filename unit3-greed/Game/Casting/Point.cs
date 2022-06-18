@@ -44,6 +44,11 @@ namespace Unit04.Game.Casting
         {
             return this.x == other.GetX() && this.y == other.GetY();
         }
+         public bool KindaEquals(Point other)
+        {
+            int distanceAround = 20;
+            return this.x >= (other.GetX()-distanceAround) && this.x <= (other.GetX()+distanceAround) && this.y >= (other.GetY()-distanceAround) && this.y <= (other.GetY()+distanceAround);
+        }
 
         /// <summary>
         /// Gets the value of the x coordinate.
