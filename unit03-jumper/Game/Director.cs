@@ -75,8 +75,8 @@ namespace Unit03.Game
             {
                 isPlaying = false;
                 terminalService.WriteText(word.getWord());
-                terminalService.WriteText(word.checkWord(word));
             }
+            terminalService.WriteText(word.checkWord(word));
             
         }
     }

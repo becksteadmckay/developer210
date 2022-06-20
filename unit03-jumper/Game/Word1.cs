@@ -33,9 +33,9 @@ namespace Unit03.Game
 
         private void makeWordList()
         {
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\mckay\OneDrive\Documents\vs_code\cse210\otherProjects\prove3try2\Game\words.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"Game\words.txt"))
             {  
-                if (line.Length > 5){
+                if (line.Length > 10){
 
                 _wordList.Add(line);  
                 }

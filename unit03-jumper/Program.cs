@@ -14,14 +14,8 @@ namespace Unit03
         /// <param name="args">The given arguments.</param>
         static void Main(string[] args)
         {
-            
             Director director = new Director();
-            TerminalService terminalservice = new TerminalService();
-            
             director.StartGame();
-            director.StartGame();
-
-            
         }
     }
 }
