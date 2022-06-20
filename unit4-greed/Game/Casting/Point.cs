@@ -46,7 +46,7 @@ namespace Unit04.Game.Casting
         }
          public bool KindaEquals(Point other)
         {
-            int distanceAround = 20;
+            int distanceAround = 15;
             return this.x >= (other.GetX()-distanceAround) && this.x <= (other.GetX()+distanceAround) && this.y >= (other.GetY()-distanceAround) && this.y <= (other.GetY()+distanceAround);
         }
 
