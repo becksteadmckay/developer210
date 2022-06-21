@@ -23,14 +23,8 @@ namespace Unit05.Game.Scripting
 
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
-
-        
         {
-            List<Actor> snakes = new List<Actor>();
-            foreach(Snake snake in )
-            snakes.Add(cast.GetActors("snake"));
             Snake snake = (Snake)cast.GetFirstActor("snake");
-            // Snake snake2 = (Snake)cast.GetSecondActor("snake");
             List<Actor> segments = snake.GetSegments();
             Actor score = cast.GetFirstActor("score");
             Actor food = cast.GetFirstActor("food");

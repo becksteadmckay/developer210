@@ -11,14 +11,13 @@ namespace Unit05.Game.Casting
     public class Snake : Actor
     {
         private List<Actor> segments = new List<Actor>();
-        
 
         /// <summary>
         /// Constructs a new instance of a Snake.
         /// </summary>
-        public Snake(int x, int y)
+        public Snake()
         {
-            PrepareBody(x,y);
+            PrepareBody();
         }
 
         /// <summary>
@@ -99,10 +98,10 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
-        private void PrepareBody(int x, int y)
+        private void PrepareBody()
         {
-            // int x = Constants.MAX_X / 2;
-            // int y = Constants.MAX_Y / 2;
+            int x = Constants.MAX_X / 2;
+            int y = Constants.MAX_Y / 2;
 
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
             {
@@ -118,7 +117,6 @@ namespace Unit05.Game.Casting
                 segment.SetColor(color);
                 segments.Add(segment);
             }
-
         }
     }
 }

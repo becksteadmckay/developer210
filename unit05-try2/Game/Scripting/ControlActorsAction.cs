@@ -49,37 +49,9 @@ namespace Unit05.Game.Scripting
             {
                 direction = new Point(0, Constants.CELL_SIZE);
             }
-            
-
-
-             // left
-            if (keyboardService.IsKeyDown("j"))
-            {
-                direction = new Point(-Constants.CELL_SIZE, 0);
-            }
-
-            // right
-            if (keyboardService.IsKeyDown("l"))
-            {
-                direction = new Point(Constants.CELL_SIZE, 0);
-            }
-
-            // up
-            if (keyboardService.IsKeyDown("i"))
-            {
-                direction = new Point(0, -Constants.CELL_SIZE);
-            }
-
-            // down
-            if (keyboardService.IsKeyDown("k"))
-            {
-                direction = new Point(0, Constants.CELL_SIZE);
-            }
 
             Snake snake = (Snake)cast.GetFirstActor("snake");
-            Snake snake2 = (Snake)cast.GetSecondActor("snake");
             snake.TurnHead(direction);
-            snake2.TurnHead(direction);
 
         }
     }

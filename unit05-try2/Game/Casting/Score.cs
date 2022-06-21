@@ -12,7 +12,6 @@ namespace Unit05.Game.Casting
     public class Score : Actor
     {
         private int points = 0;
-        private Point point = new Point(5,5);
 
         /// <summary>
         /// Constructs a new instance of an Food.
@@ -20,7 +19,6 @@ namespace Unit05.Game.Casting
         public Score()
         {
             AddPoints(0);
-            SetPosition(point);
         }
 
         /// <summary>
@@ -32,6 +30,5 @@ namespace Unit05.Game.Casting
             this.points += points;
             SetText($"Score: {this.points}");
         }
-
     }
 }

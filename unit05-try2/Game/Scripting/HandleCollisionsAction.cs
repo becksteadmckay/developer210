@@ -43,7 +43,6 @@ namespace Unit05.Game.Scripting
         private void HandleFoodCollisions(Cast cast)
         {
             Snake snake = (Snake)cast.GetFirstActor("snake");
-            Snake snake2 = (Snake)cast.GetSecondActor("snake");
             Score score = (Score)cast.GetFirstActor("score");
             Food food = (Food)cast.GetFirstActor("food");
             
@@ -63,22 +62,12 @@ namespace Unit05.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             Snake snake = (Snake)cast.GetFirstActor("snake");
-            Snake snake2 = (Snake)cast.GetSecondActor("snake");
             Actor head = snake.GetHead();
-            Actor head2 = snake2.GetHead();
             List<Actor> body = snake.GetBody();
-            List<Actor> body2 = snake2.GetBody();
 
             foreach (Actor segment in body)
             {
                 if (segment.GetPosition().Equals(head.GetPosition()))
-                {
-                    isGameOver = true;
-                }
-            }
-            foreach (Actor segment in body2)
-            {
-                if (segment.GetPosition().Equals(head2.GetPosition()))
                 {
                     isGameOver = true;
                 }
@@ -90,11 +79,8 @@ namespace Unit05.Game.Scripting
             if (isGameOver == true)
             {
                 Snake snake = (Snake)cast.GetFirstActor("snake");
-                Snake snake2 = (Snake)cast.GetSecondActor("snake");
                 List<Actor> segments = snake.GetSegments();
-                List<Actor> segments2 = snake.GetSegments();
                 Food food = (Food)cast.GetFirstActor("food");
-                Food food2 = (Food)cast.GetSecondActor("food");
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
